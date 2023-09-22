@@ -31,10 +31,12 @@ const listImg = [
 //Sostituisco il ciclo trdizionale con un for..of
 for (let singleImg of listImg){
   boxImg.innerHTML += `<img src="${singleImg}" class="my_img hide">`;
+  console.log(singleImg)
 }
 //5.
 const imgCollection = document.getElementsByClassName('my_img');
-console.log(imgCollection);
+imgCollection[0].classList.remove('hide');
+console.log(imgCollection[0])
 
 
 btnTop.addEventListener('click', function (){
