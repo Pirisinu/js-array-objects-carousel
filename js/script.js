@@ -49,6 +49,11 @@ const images = [
 //Sostituisco il ciclo trdizionale con un for..of
 for (let singleImg of images){
   boxImg.innerHTML += `
+  <div class="text-box p-absolute">
+  <h1 class="my_title hide">${singleImg.title}</h1>
+  <p class="my_parag hide">${singleImg.text}</p>
+  </div>
+
   <img src="${singleImg.image}" class="my_img hide">
   `;
   textBox.innerHTML += `${singleImg.title}`;
@@ -60,16 +65,24 @@ const imgCollection = document.getElementsByClassName('my_img');
 imgCollection[0].classList.remove('hide');
 console.log(imgCollection[0])
 
-/* const textCollection = document.getElementsByClassName('my_txt');
+const titleCollection = document.getElementsByClassName('my_title');
+titleCollection[0].classList.remove('hide');
+console.log(titleCollection[0])
+
+const textCollection = document.getElementsByClassName('my_parag');
 textCollection[0].classList.remove('hide');
-console.log(textCollection[0]) */
+console.log(textCollection[0])
 
 
 btnTop.addEventListener('click', function (){
   imgCollection[counter].classList.add('hide');
+  titleCollection[counter].classList.add('hide');
+  textCollection[counter].classList.add('hide');
   btnDown.classList.remove('hide');
   counter++;
   imgCollection[counter].classList.remove('hide');
+  titleCollection[counter].classList.remove('hide');
+  textCollection[counter].classList.remove('hide');
   if(counter == imgCollection.length -1) {
     btnTop.classList.add('hide');
   }
@@ -77,8 +90,12 @@ btnTop.addEventListener('click', function (){
 
 btnDown.addEventListener('click', function (){
   imgCollection[counter].classList.add('hide');
+  titleCollection[counter].classList.add('hide');
+  textCollection[counter].classList.add('hide');
   counter--;
   imgCollection[counter].classList.remove('hide');
+  titleCollection[counter].classList.remove('hide');
+  textCollection[counter].classList.remove('hide');
   btnTop.classList.remove('hide');
   if(counter == 0) btnDown.classList.add('hide');
 });
