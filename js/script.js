@@ -11,6 +11,7 @@ SVOLGIMENTO
 const container = document.querySelector('.container');
 const boxImg = document.querySelector('.box-img');
 const ltlImg = document.querySelector('.ltl-img');
+const textBox = document.querySelector('.text-box');
 
 //bottoni
 const btnTop = document.querySelector('.top');
@@ -50,9 +51,7 @@ for (let singleImg of images){
   boxImg.innerHTML += `
   <img src="${singleImg.image}" class="my_img hide">
   `;
-  boxImg.innerHTML += `
-  <p class="p-absolute">${singleImg.title}</p>
-  `;
+  textBox.innerHTML += `${singleImg.title}`;
   
   console.log(singleImg)
 }
@@ -60,6 +59,10 @@ for (let singleImg of images){
 const imgCollection = document.getElementsByClassName('my_img');
 imgCollection[0].classList.remove('hide');
 console.log(imgCollection[0])
+
+/* const textCollection = document.getElementsByClassName('my_txt');
+textCollection[0].classList.remove('hide');
+console.log(textCollection[0]) */
 
 
 btnTop.addEventListener('click', function (){
