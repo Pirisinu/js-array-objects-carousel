@@ -56,39 +56,54 @@ for (let singleImg of images){
   <img src="${singleImg.image}" class="my_img hide">
   `;  
 }
-//5.
+
+/* COLLECTIONS */
+//IMG
 const imgCollection = document.getElementsByClassName('my_img');
 imgCollection[0].classList.remove('hide');
 console.log(imgCollection[0])
+//TXT
+const textCollection = document.getElementsByClassName('text-box');
+textCollection[0].classList.remove('hide');
+console.log(textCollection[0])
 
-const textBox = document.getElementsByClassName('text-box');
-textBox[0].classList.remove('hide');
-console.log(textBox[0])
+/* EVENT 'CLICK' */
 
-
-
+//BOTTON
+//TOP
 btnTop.addEventListener('click', function (){
-  imgCollection[counter].classList.add('hide');
-  textBox[counter].classList.add('hide');
+  hideAdd(imgCollection[counter])
+  hideAdd(textCollection[counter])
   btnDown.classList.remove('hide');
   counter++;
-  imgCollection[counter].classList.remove('hide');
-  textBox[counter].classList.remove('hide');
+  hideRemove(textCollection[counter])
+  hideRemove(textCollection[counter])
   if(counter == imgCollection.length -1) {
   }
 });
-
+//DOWN
 btnDown.addEventListener('click', function (){
-  imgCollection[counter].classList.add('hide');
-  textBox[counter].classList.add('hide');
+  hideAdd(imgCollection[counter])
+  hideAdd(textCollection[counter])
   counter--;
-  imgCollection[counter].classList.remove('hide');
-  textBox[counter].classList.remove('hide');
+  hideRemove(textCollection[counter])
+  hideRemove(textCollection[counter])
   btnTop.classList.remove('hide');
   if(counter == 0) btnDown.classList.add('hide');
 });
 
+
 ltlImg.addEventListener('click', function (){
   console.log(Element);
 });
+
+/* FUNCTION */
+//HIDE
+function hideAdd(collection,[c]){
+ collection[c].classList.add('hide');
+}
+//SHOW
+function hideRemove(collection,[c]){
+  collection[c].classList.remove('hide');
+}
 
