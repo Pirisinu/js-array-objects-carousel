@@ -76,9 +76,10 @@ btnTop.addEventListener('click', function (){
   hideAdd(textCollection[counter])
   btnDown.classList.remove('hide');
   counter++;
+  hideRemove(imgCollection[counter])
   hideRemove(textCollection[counter])
-  hideRemove(textCollection[counter])
-  if(counter == imgCollection.length -1) {
+  if(counter == imgCollection.length - 1 ) {
+    btnTop.classList.add('hide');
   }
 });
 //DOWN
@@ -86,7 +87,7 @@ btnDown.addEventListener('click', function (){
   hideAdd(imgCollection[counter])
   hideAdd(textCollection[counter])
   counter--;
-  hideRemove(textCollection[counter])
+  hideRemove(imgCollection[counter])
   hideRemove(textCollection[counter])
   btnTop.classList.remove('hide');
   if(counter == 0) btnDown.classList.add('hide');
@@ -99,11 +100,11 @@ ltlImg.addEventListener('click', function (){
 
 /* FUNCTION */
 //HIDE
-function hideAdd(collection,[c]){
- collection[c].classList.add('hide');
+function hideAdd(collection){
+ collection.classList.add('hide');
 }
 //SHOW
-function hideRemove(collection,[c]){
-  collection[c].classList.remove('hide');
+function hideRemove(collection){
+  collection.classList.remove('hide');
 }
 
